@@ -1,0 +1,117 @@
+1.OOPS: Object-Oriented Programming (OOP) is a popular programming paradigm in JavaScript, as well as many other languages
+       and this oops concepts are essential for building modular,maintainable,scalable software systems.oops concepts are,
+    1.Class
+    2.Object
+    3.Abstraction
+    4.Encapsulation
+    5.Inheritance
+    6.polymorphism
+     
+    1.Class: classes are the blueprint for the objects.A class is like a template and that can be used to create a multiple
+           objects with similar properties and methods.
+           Example:
+           class Person{
+            constructor(name,age){
+                this.name=name
+                this.age=age
+            }
+            print(){
+                console.log(`my name is ${name} and my age is ${age}`)
+            }
+           }
+           let person1= new Person("Rakesh",21) // creating new Object
+    2.Object: Object is an instance of a class
+
+    3.Constructor: constructor function is a special function that is used in inside the class and that get called 
+               when new object get created.this basically used to intialize properties of an Object.
+
+    4.Encapsulation: Encapsulation means bundling the data,properties and methods inside a single unit.(typically an object or a class)
+        it's also restrics the direct access of the objects components and that can be achived by the private property
+         Example:
+         class BankBalance{
+            #balance=0; //private properties 
+            constructor(accountNumber){
+                this.accountNumber=accountNumber
+            }
+            deposit(amount){
+                this.#balance+=amount
+            }
+            getBalance(){
+                return this.#balance
+            }
+         }
+         let myAccount=new BankBalance(989898)
+         myAccount.deposit(999)
+         myAccount.getBalance()
+
+    5.Inheritance: Inheritance allows the one class to inherit properties of another class.this can be usefull for code
+     reausable.
+      Example:
+       calss Vehicle{
+        constructor(type,wheels){
+            this.type=type
+            this.wheels=wheels
+        }
+        describe(){
+            console.log(`this Vehicle is ${this.type} with ${this.wheels} wheels)
+        }
+       }
+       class MotorCycle extends Vehicle{
+        constructor(make,model){
+            super("MotorCycle",2) //Calling parent class
+            this.make=make
+            this.model=model
+        }
+        showDetails(){
+            console.log(`This motorcycle is a ${this.make} ${this.model}.`);
+
+        }
+       }
+       let bike = new MotorCycle("Yamaha","MT15")
+       bike.describe()
+       bike.showDetails()
+    6.Polymorphism:
+        Polymorphism means "many forms" and allows you to define multiple methods with the same name 
+        but different implementations, typically by using inheritance. You can override methods in child
+         classes to change the behavior.
+         Example:
+         class Animal {
+               speak() {
+               console.log('Animal makes a sound.');
+               }
+        }
+
+        class Dog extends Animal {
+            speak() {
+                 console.log('Dog barks.');
+            }
+        }
+
+       class Cat extends Animal {
+            speak() {
+                 console.log('Cat meows.');
+            }
+        }
+
+       let animals = [new Animal(), new Dog(), new Cat()];
+       animals.forEach(animal => animal.speak());
+
+    7.Abstraction:It means hide complexity and show only required and essential things to user
+      Example:
+            class RemoteControl {
+                turnOn() {
+                    this.connectToTV();
+                    console.log('TV is turned on.');
+             }
+
+                // Private implementation
+                connectToTV() {
+                    console.log('Connecting to TV...');
+                }
+                }
+
+            let remote = new RemoteControl();
+            remote.turnOn();
+        In this example, the connectToTV() method is hidden from the user and only used internally, 
+        keeping the functionality abstract and simple.
+
